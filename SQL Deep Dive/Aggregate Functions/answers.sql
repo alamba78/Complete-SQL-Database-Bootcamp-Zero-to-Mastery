@@ -29,6 +29,11 @@ select max(birth_date) from employees;
 -- Table: Towns
 -- Result: 36684
 select count(id) from towns;
+-- This table has duplicate entries for town names
+-- This can be verified with:
+-- SELECT name, count(name) FROM towns GROUP BY name HAVING count(name) > 1;
+-- The correct statement should be:
+SELECT COUNT(DISTINCT(name)) FROM towns;
 
 --
 /*
